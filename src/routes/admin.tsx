@@ -4,10 +4,7 @@ import { useStore } from "@/lib/store";
 import { useToast } from "@/lib/toast";
 import { Logo } from "@/components/Logo";
 import { adminHead } from "@/components/admin/AdminUI";
-import {
-  BoxIcon, CloseIcon, DashboardIcon, ExternalIcon, FileIcon, ImageIcon, InboxIcon, LogoutIcon, MenuIcon,
-  MessageIcon, ReceiptIcon, SettingsIcon, TagIcon, TicketIcon, UsersIcon,
-} from "@/components/icons";
+import { BoxIcon, CloseIcon, DashboardIcon, ExternalIcon, ImageIcon, LogoutIcon, MenuIcon, TagIcon, TicketIcon } from "@/components/icons";
 
 export const Route = createFileRoute("/admin")({
   head: () => adminHead("Admin Panel", "HURRAYECA store administration."),
@@ -18,14 +15,8 @@ const NAV = [
   { to: "/admin", label: "Dashboard", Icon: DashboardIcon, exact: true },
   { to: "/admin/products", label: "Products", Icon: BoxIcon, exact: false },
   { to: "/admin/categories", label: "Categories", Icon: TagIcon, exact: false },
-  { to: "/admin/orders", label: "Orders", Icon: ReceiptIcon, exact: false },
-  { to: "/admin/customers", label: "Customers", Icon: UsersIcon, exact: false },
   { to: "/admin/banners", label: "Banners", Icon: ImageIcon, exact: false },
   { to: "/admin/coupons", label: "Coupons", Icon: TicketIcon, exact: false },
-  { to: "/admin/reviews", label: "Reviews", Icon: MessageIcon, exact: false },
-  { to: "/admin/content", label: "Website Content", Icon: FileIcon, exact: false },
-  { to: "/admin/enquiries", label: "Enquiries", Icon: InboxIcon, exact: false },
-  { to: "/admin/settings", label: "Settings", Icon: SettingsIcon, exact: false },
 ] as const;
 
 function AdminLayout() {

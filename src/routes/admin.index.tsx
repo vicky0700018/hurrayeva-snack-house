@@ -4,7 +4,7 @@ import { useStore } from "@/lib/store";
 import { formatDate, inr } from "@/lib/format";
 import { ORDER_STATUSES, ORDER_STATUS_LABELS, ORDER_STATUS_TONE } from "@/lib/labels";
 import { AdminPageHeader, StatusPill, TableCard, adminHead } from "@/components/admin/AdminUI";
-import { ArrowRight, BoxIcon, ClockIcon, ReceiptIcon, RupeeIcon, TagIcon } from "@/components/icons";
+import { BoxIcon, ClockIcon, ReceiptIcon, RupeeIcon, TagIcon } from "@/components/icons";
 
 export const Route = createFileRoute("/admin/")({
   head: () => adminHead("Dashboard", "Overview of products, orders, revenue and recent activity."),
@@ -38,8 +38,8 @@ function Dashboard() {
   const stats = [
     { label: "Total Products", value: data.products.length, Icon: BoxIcon, to: "/admin/products" as const },
     { label: "Total Categories", value: data.categories.length, Icon: TagIcon, to: "/admin/categories" as const },
-    { label: "Total Orders", value: data.orders.length, Icon: ReceiptIcon, to: "/admin/orders" as const },
-    { label: "Total Revenue (demo)", value: inr(revenue), Icon: RupeeIcon, to: "/admin/orders" as const },
+    { label: "Total Orders", value: data.orders.length, Icon: ReceiptIcon, to: "/admin" as const },
+    { label: "Total Revenue (demo)", value: inr(revenue), Icon: RupeeIcon, to: "/admin" as const },
   ];
 
   const W = 640, H = 220, pad = 28, bw = (W - pad * 2) / days.length;
@@ -98,7 +98,7 @@ function Dashboard() {
 
       <div className="grid gap-6 xl:grid-cols-[1.6fr_1fr]">
         <div>
-          <div className="mb-3 flex items-center justify-between"><h2 className="text-lg font-semibold">Recent Orders</h2><Link to="/admin/orders" className="flex items-center gap-1 text-sm font-bold text-primary">View all <ArrowRight size={14} /></Link></div>
+          <div className="mb-3 flex items-center justify-between"><h2 className="text-lg font-semibold">Recent Orders</h2></div>
           <TableCard>
             <table className="table-base">
               <thead><tr><th>Order</th><th>Customer</th><th>Date</th><th>Total</th><th>Status</th></tr></thead>
